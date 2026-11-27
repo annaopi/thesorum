@@ -297,3 +297,20 @@ npm test                  # existing Vitest suite
 npm run typecheck         # strict TypeScript check
 npm run build             # production TypeScript build
 ```
+## Application Preview
+
+# Dashboard
+<img width="1917" height="911" alt="thesorum_dashboard-overview_1" src="https://github.com/user-attachments/assets/4a1a137a-9e0f-4416-adf3-5b5e0505e485" />
+<img width="1917" height="907" alt="thesorum_dashboard-overview_2" src="https://github.com/user-attachments/assets/6753697a-6021-4775-8b0d-34bd71af9aae" />
+<img width="1917" height="911" alt="thesorum_dashboard-overview_3" src="https://github.com/user-attachments/assets/06fd240f-79f0-4218-afe6-ff0cca59ecf7" />
+
+# Reconciliation
+<img width="1917" height="912" alt="thesorum_reconciliation_01" src="https://github.com/user-attachments/assets/5f6e1afd-2a25-4972-8260-cbd0a268876e" />
+
+# Transactions
+<img width="1917" height="912" alt="thesorum_transactions" src="https://github.com/user-attachments/assets/c0aa47a9-f1d0-440c-8562-fde26f04ac62" />
+
+# AI analysis
+<img width="1917" height="907" alt="thesorum_ai_analysis_1" src="https://github.com/user-attachments/assets/d4bfb506-3b7e-40dd-b6fc-80bf7071bf12" />
+<img width="1917" height="916" alt="thesorum_ai_analysis_2" src="https://github.com/user-attachments/assets/1e8fa546-deea-44e9-a013-4e33fcf1bc11" />
+
