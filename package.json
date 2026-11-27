@@ -1,0 +1,27 @@
+{
+  "name": "thesorum",
+  "version": "1.0.0",
+  "description": "Multi-agent financial reconciliation and anomaly detection (deterministic core + advisory AI agents).",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "demo": "tsx src/index.ts --no-ai",
+    "build": "tsc -p tsconfig.build.json",
+    "start:dist": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "start:env": "tsx --env-file=.env src/index.ts",
+    "dashboard": "tsx src/presentation/server.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "vitest": "^3.0.0"
+  }
+}

@@ -4,6 +4,7 @@ import type {
 } from "../../domain/ReconciliationResult.js";
 import type { ValidationIssue } from "./ValidationIssue.js";
 
+/** Deterministic facts about the imported data; the input of the Transaction Analyst agent. */
 export interface DataQualityFacts {
   readonly invoiceCount: number;
   readonly transactionCount: number;

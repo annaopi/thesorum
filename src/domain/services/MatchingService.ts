@@ -170,7 +170,7 @@ export class MatchingService {
     };
   }
 
-  // decide
+  // ---------------------------------------------------------------- decide
 
   private static decide(
     tx: Transaction,
@@ -486,7 +486,7 @@ export class MatchingService {
     };
   }
 
-  // ledger
+  // ---------------------------------------------------------------- ledger
 
   private static applyToLedger(
     tx: Transaction,

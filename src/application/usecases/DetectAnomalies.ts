@@ -46,7 +46,7 @@ export class DetectAnomalies {
       }));
   }
 
-  // invoices
+  // ------------------------------------------------------------ invoices
 
   private fromDuplicateInvoices(run: ReconciliationRun): AnomalyDraft[] {
     const drafts: AnomalyDraft[] = [];
@@ -157,7 +157,7 @@ export class DetectAnomalies {
     return drafts;
   }
 
-  // transactions
+  // ------------------------------------------------------- transactions
 
   private fromDecisions(run: ReconciliationRun): AnomalyDraft[] {
     const drafts: AnomalyDraft[] = [];
@@ -372,7 +372,7 @@ export class DetectAnomalies {
     return drafts;
   }
 
-  // lookup
+  // ------------------------------------------------------------- lookup
 
   private invoice(run: ReconciliationRun, id: string): Invoice {
     const invoice = run.invoiceById(id);

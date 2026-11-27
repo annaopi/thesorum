@@ -1,6 +1,7 @@
 import type { Payment } from "../../domain/entities/Payment.js";
 
 export interface PaymentRepository {
+  /** Replaces all stored payments: allocations are recomputed on every run. */
   replaceAll(payments: readonly Payment[]): Promise<void>;
   findAll(): Promise<readonly Payment[]>;
   findByInvoiceId(invoiceId: string): Promise<readonly Payment[]>;

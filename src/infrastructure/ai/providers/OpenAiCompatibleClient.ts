@@ -13,6 +13,13 @@ export interface OpenAiCompatibleClientOptions {
   readonly fetchFn?: typeof fetch;
 }
 
+/**
+ * Transport for the OpenAI "Chat Completions" protocol. Works with OpenAI and
+ * with any provider or local server that implements the same protocol
+ * (set LLM_BASE_URL). JSON mode is deliberately not requested because not all
+ * compatible servers accept it; the generic adapter extracts and validates the
+ * JSON itself.
+ */
 export class OpenAiCompatibleClient implements LlmClient {
   public readonly provider = "openai";
   public readonly model: string;

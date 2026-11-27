@@ -34,7 +34,9 @@ export interface WorkflowDependencies {
   readonly generateReport: GenerateFinancialReport;
   readonly invoices: InvoiceRepository;
   readonly transactions: TransactionRepository;
+  /** Preferred agent implementation (e.g. LLM-backed). */
   readonly ai: AIAnalysisPort;
+  /** Deterministic implementation used when `ai` fails. */
   readonly fallbackAi: AIAnalysisPort;
 }
 
@@ -61,7 +63,6 @@ export interface WorkflowCommand {
  * AgentOutputGuard. If an agent fails, the deterministic fallback runs and the
  * trace says so; the financial results never depend on an agent succeeding.
  */
-
 export class ReconciliationWorkflow {
   public constructor(private readonly deps: WorkflowDependencies) {}
 

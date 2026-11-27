@@ -81,6 +81,7 @@ export interface AnomalyReportLine {
   readonly values: Readonly<Record<string, string>>;
   readonly explanation: string;
   readonly recommendedAction: string;
+  /** Advisory only. Never changes risk, status or amounts. */
   readonly aiInsight: AnomalyInsightLine | null;
 }
 
@@ -112,7 +113,7 @@ export interface FinancialReport {
   readonly invoices: readonly InvoiceReportLine[];
   readonly transactions: readonly TransactionReportLine[];
   readonly anomalies: readonly AnomalyReportLine[];
-
+  /** Anomalies ordered by effective priority: what a human should look at first. */
   readonly reviewQueue: readonly ReviewItem[];
   readonly dataQuality: {
     readonly source: AnalysisSource;

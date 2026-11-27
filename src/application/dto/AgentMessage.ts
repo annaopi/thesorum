@@ -1,3 +1,4 @@
+/** One entry of the agent collaboration trace (who handed what to whom). */
 export interface AgentMessage {
   readonly sequence: number;
   readonly from: string;

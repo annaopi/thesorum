@@ -14,7 +14,7 @@ export interface LlmRequest {
 }
 
 export interface LlmClient {
-  /** Short provider label for diagnostics */
+  /** Short provider label for diagnostics, e.g. "anthropic". */
   readonly provider: string;
   readonly model: string;
   complete(request: LlmRequest): Promise<string>;

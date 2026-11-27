@@ -1,13 +1,14 @@
 import type { LocalDate } from "../value-objects/LocalDate.js";
 import type { Money } from "../value-objects/Money.js";
 
+/** "1200.00 EUR" */
 export function formatMoney(money: Money): string {
   return `${money.toDecimalString()} ${money.currency.code}`;
 }
 
 /**
  * Comparison key for party names: case-, accent-, punctuation- and
- * whitespace-insensitive ("Name d.o.o." and "NAME DOO" are equal).
+ * whitespace-insensitive ("Acme d.o.o." and "ACME DOO" are equal).
  */
 export function canonicalName(name: string): string {
   return name

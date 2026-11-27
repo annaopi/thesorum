@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#101c31"/><title>THESORUM — Financial Intelligence</title>
+  <link rel="stylesheet" href="/styles.css"/>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">T</div><div><div class="brand-name">THESORUM</div><div class="brand-sub">FINANCIAL INTELLIGENCE</div></div></div>
+    <div class="workspace-label">WORKSPACE</div>
+    <nav id="nav">
+      <button class="nav-item active" data-view="overview"><span class="nav-icon">◫</span> Overview</button>
+      <button class="nav-item" data-view="reconciliation"><span class="nav-icon">⇄</span> Reconciliation</button>
+      <button class="nav-item" data-view="transactions"><span class="nav-icon">↗</span> Transactions</button>
+      <button class="nav-item" data-view="anomalies"><span class="nav-icon">◇</span> Anomaly detection <span id="anomaly-nav-count" class="nav-count">—</span></button>
+      <button class="nav-item" data-view="analysis"><span class="nav-icon">⌘</span> AI analysis</button>
+    </nav>
+    <div class="sidebar-bottom"><div class="system-status"><span class="pulse"></span><span>Reconciliation engine</span><b>READY</b></div><div class="sidebar-foot">THESORUM v1.0<br/>Human-reviewed financial operations</div></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div class="crumb">Workspace <span>/</span> <b id="crumb-current">Overview</b></div><div class="top-actions"><span class="environment"><i></i> DEMO ENVIRONMENT</span><button class="icon-button" id="refresh" title="Refresh report">↻</button><div class="avatar">TS</div></div></header>
+    <section class="page-head"><div><div class="eyebrow">FINANCIAL OPERATIONS / <span id="today-label">LIVE REPORT</span></div><h1 id="page-title">Financial overview</h1><p id="page-description">A consolidated view of invoice settlement, payment allocation and financial exceptions.</p></div><div class="head-meta"><span class="meta-label">REPORTING DATE</span><strong id="as-of">—</strong><span class="run-id" id="run-id">RUN —</span></div></section>
+    <div id="loading" class="state-panel"><div class="loader"></div><b>Running reconciliation workflow</b><span>Importing, validating and analysing financial records…</span></div>
+    <div id="error" class="state-panel error hidden"><b>Unable to load financial report</b><span id="error-message"></span><button class="primary-button" id="retry">Try again</button></div>
+    <div id="content" class="hidden">
+      <section class="view active" id="view-overview">
+        <div class="metric-grid" id="metrics"></div>
+        <div class="section-row"><div><h2>Financial position</h2><p>Aggregated by currency from the reconciliation report</p></div><span class="section-tag">DETERMINISTIC OUTPUT</span></div>
+        <div class="panel"><div class="panel-head"><div><h3>Invoice settlement</h3><p>Invoiced, paid and outstanding amounts</p></div><span class="panel-note" id="currency-note">BY CURRENCY</span></div><div id="financial-chart" class="chart-area"></div></div>
+        <div class="two-col"><div class="panel"><div class="panel-head"><div><h3>Invoice status</h3><p>Distribution across imported invoices</p></div></div><div id="invoice-status" class="distribution"></div></div><div class="panel"><div class="panel-head"><div><h3>Anomaly severity</h3><p>Exceptions requiring human attention</p></div></div><div id="risk-status" class="distribution"></div></div></div>
+        <div class="section-row"><div><h2>Priority review queue</h2><p>Highest-priority exceptions identified by the engine</p></div><button class="text-button" data-go="anomalies">View all exceptions →</button></div>
+        <div class="panel table-panel"><div class="table-wrap"><table><thead><tr><th>PRIORITY</th><th>EXCEPTION</th><th>RECORD</th><th>RECOMMENDED ACTION</th></tr></thead><tbody id="queue-table"></tbody></table></div></div>
+      </section>
+      <section class="view" id="view-reconciliation"><div class="toolbar"><input id="invoice-search" placeholder="Search invoice, supplier…"/><select id="invoice-filter"><option value="ALL">All statuses</option></select><select id="invoice-currency"><option value="ALL">All currencies</option></select></div><div class="panel table-panel"><div class="table-wrap"><table><thead><tr><th>INVOICE</th><th>SUPPLIER</th><th>INVOICED</th><th>PAID</th><th>OUTSTANDING</th><th>DUE DATE</th><th>STATUS</th></tr></thead><tbody id="invoice-table"></tbody></table></div></div></section>
+      <section class="view" id="view-transactions"><div class="toolbar"><input id="transaction-search" placeholder="Search transaction, counterparty…"/><select id="transaction-filter"><option value="ALL">All statuses</option></select><select id="transaction-currency"><option value="ALL">All currencies</option></select></div><div class="panel table-panel"><div class="table-wrap"><table><thead><tr><th>TRANSACTION</th><th>DATE</th><th>COUNTERPARTY</th><th>REFERENCE</th><th>AMOUNT</th><th>ALLOCATED</th><th>STATUS</th></tr></thead><tbody id="transaction-table"></tbody></table></div></div></section>
+      <section class="view" id="view-anomalies"><div class="toolbar"><input id="anomaly-search" placeholder="Search exception or record…"/><select id="anomaly-risk"><option value="ALL">All severities</option><option>HIGH</option><option>MEDIUM</option><option>LOW</option></select><select id="anomaly-type"><option value="ALL">All anomaly types</option></select></div><div class="anomaly-layout"><div class="panel table-panel"><div class="table-wrap"><table><thead><tr><th>SEVERITY</th><th>TYPE</th><th>RECORD</th><th>AMOUNT</th></tr></thead><tbody id="anomaly-table"></tbody></table></div></div><aside class="panel detail-panel" id="anomaly-detail"><div class="empty-detail">Select an exception to inspect its evidence and recommended action.</div></aside></div></section>
+      <section class="view" id="view-analysis"><div class="analysis-banner"><div><div class="eyebrow">EXECUTION MODE</div><h2 id="analysis-mode">RULE-BASED</h2><p id="analysis-summary">Deterministic analysis and guarded agent commentary.</p></div><span class="mode-pill" id="mode-pill">DEMO MODE</span></div><div class="two-col"><div class="panel"><div class="panel-head"><div><h3>Data quality analysis</h3><p>Agent 01 · Transaction Analyst</p></div></div><p id="quality-summary" class="analysis-copy"></p><div id="observations"></div></div><div class="panel"><div class="panel-head"><div><h3>Exception analysis</h3><p>Agent 02 · Exception Analyst</p></div></div><p id="exception-summary" class="analysis-copy"></p><div class="guard-note">AI commentary is advisory only. It cannot alter financial calculations, matching decisions or risk classifications.</div></div></div><div class="section-row"><div><h2>Agent execution trace</h2><p>Ordered events from the actual workflow run</p></div><span class="section-tag">WORKFLOW LOG</span></div><div class="panel trace-panel" id="trace"></div></section>
+      <footer class="footer"><span>THESORUM · Financial Intelligence & Reconciliation</span><span id="disclaimer"></span></footer>
+    </div>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+</body></html>
